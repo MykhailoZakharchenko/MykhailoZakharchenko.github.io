@@ -29,6 +29,9 @@ function updateQuantity(item, change) {
     if (quantity < 0) quantity = 0;
     quantityElement.innerText = quantity;
     selectedItems[item] = quantity;
+    if (quantity === 0) {
+        delete selectedItems[item];
+    }
     updateMainButton();
 }
 
@@ -49,3 +52,8 @@ function updateMainButton() {
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     tg.sendData(JSON.stringify(selectedItems));
 });
+
+let usercard = document.getElementById("usercard");
+let p = document.createElement("p");
+p.innerText = `${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`;
+usercard.appendChild(p);
