@@ -1,44 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Durger King</title>
 </head>
 <body>
-	<div class="container">
-		<div class="inner">
-			<div class="item">
-				<img src="1.png" alt="" class="img">
-				<button class="btn" id="btn1">Add</button>
-			</div>
-			<div class="item">
-				<img src="1.png" alt="" class="img">
-				<button class="btn" id="btn2">Add</button>
-			</div>
-			<div class="item">
-				<img src="1.png" alt="" class="img">
-				<button class="btn" id="btn3">Add</button>
-			</div>
-			<div class="item">
-				<img src="1.png" alt="" class="img">
-				<button class="btn" id="btn4">Add</button>
-			</div>
-			<div class="item">
-				<img src="1.png" alt="" class="img">
-				<button class="btn" id="btn5">Add</button>
-			</div>
-			<div class="item">
-				<img src="1.png" alt="" class="img">
-				<button class="btn" id="btn6">Add</button>
-			</div>
-		</div>
-	</div>
-	<div class="usercard" id="usercard">
-	</div>
+    <div class="container">
+        <h1>Durger King</h1>
+        <div class="menu">
+            <div class="item">
+                <img src="1.png" alt="Cake" class="img">
+                <div class="info">Cake · ⭐ 1</div>
+                <button class="btn buy">BUY</button>
+            </div>
+            <div class="item">
+                <img src="burger.png" alt="Burger" class="img">
+                <div class="info">Burger · $4.99</div>
+                <button class="btn add" id="btn1">ADD</button>
+            </div>
+            <div class="item">
+                <img src="fries.png" alt="Fries" class="img">
+                <div class="info">Fries · $1.49</div>
+                <button class="btn add" id="btn2">ADD</button>
+            </div>
+            <div class="item">
+                <img src="hotdog.png" alt="Hotdog" class="img">
+                <div class="info">Hotdog · $3.49</div>
+                <div class="quantity-controls">
+                    <button class="quantity-btn" id="decrease-hotdog">-</button>
+                    <span class="quantity" id="quantity-hotdog">0</span>
+                    <button class="quantity-btn" id="increase-hotdog">+</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="taco.png" alt="Taco" class="img">
+                <div class="info">Taco · $3.99</div>
+                <button class="btn add" id="btn3">ADD</button>
+            </div>
+            <div class="item">
+                <img src="pizza.png" alt="Pizza" class="img">
+                <div class="info">Pizza · $7.99</div>
+                <button class="btn add" id="btn4">ADD</button>
+            </div>
+            <div class="item">
+                <img src="donut.png" alt="Donut" class="img">
+                <div class="info">Donut · $1.49</div>
+                <button class="btn add" id="btn5">ADD</button>
+            </div>
+            <div class="item">
+                <img src="popcorn.png" alt="Popcorn" class="img">
+                <div class="info">Popcorn · $1.99</div>
+                <button class="btn add" id="btn6">ADD</button>
+            </div>
+            <div class="item">
+                <img src="coke.png" alt="Coke" class="img">
+                <div class="info">Coke · $1.49</div>
+                <button class="btn add" id="btn7">ADD</button>
+            </div>
+        </div>
+    </div>
 
-	<script src="https://telegram.org/js/telegram-web-app.js"></script>
-	<script src="app.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
