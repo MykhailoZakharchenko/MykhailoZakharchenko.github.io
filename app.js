@@ -5,34 +5,47 @@ tg.expand();
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#2cab37';
 
-let selectedItems = new Set();
+let selectedItems = {};
+
+document.querySelectorAll('.btn.add').forEach(button => {
+    button.addEventListener('click', function() {
+        let itemId = this.id.replace('btn', '');
+        selectedItems[itemId] = (selectedItems[itemId] || 0) + 1;
+        updateMainButton();
+    });
+});
+
+document.getElementById('increase-hotdog').addEventListener('click', function() {
+    updateQuantity('hotdog', 1);
+});
+
+document.getElementById('decrease-hotdog').addEventListener('click', function() {
+    updateQuantity('hotdog', -1);
+});
+
+function updateQuantity(item, change) {
+    let quantityElement = document.getElementById(`quantity-${item}`);
+    let quantity = parseInt(quantityElement.innerText) + change;
+    if (quantity < 0) quantity = 0;
+    quantityElement.innerText = quantity;
+    selectedItems[item] = quantity;
+    updateMainButton();
+}
 
 function updateMainButton() {
-    if (selectedItems.size > 0) {
-        tg.MainButton.setText(`Selected items: ${[...selectedItems].join(', ')}`);
+    let items = Object.entries(selectedItems)
+        .filter(([key, value]) => value > 0)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join(', ');
+    
+    if (items.length > 0) {
+        tg.MainButton.setText(`Selected items: ${items}`);
         tg.MainButton.show();
     } else {
         tg.MainButton.hide();
     }
 }
 
-document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', function() {
-        let itemId = this.id.replace('btn', '');
-        if (selectedItems.has(itemId)) {
-            selectedItems.delete(itemId);
-        } else {
-            selectedItems.add(itemId);
-        }
-        updateMainButton();
-    });
-});
-
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
-    tg.sendData([...selectedItems].join(','));
+    tg.sendData(JSON.stringify(selectedItems));
 });
-
-let usercard = document.getElementById("usercard");
-let p = document.createElement("p");
-p.innerText = `${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`;
-usercard.appendChild(p);
