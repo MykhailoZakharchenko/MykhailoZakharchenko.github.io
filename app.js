@@ -9,7 +9,7 @@ let selectedItems = {};
 
 document.querySelectorAll('.btn.add').forEach(button => {
     button.addEventListener('click', function() {
-        let itemId = this.id.replace('btn', '');
+        let itemId = this.id.replace('btn-', '');
         selectedItems[itemId] = (selectedItems[itemId] || 0) + 1;
         updateMainButton();
     });
