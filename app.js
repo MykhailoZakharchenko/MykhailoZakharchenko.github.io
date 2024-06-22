@@ -7,10 +7,18 @@ tg.MainButton.color = '#2cab37';
 
 let selectedItems = {};
 
+// Mapping button IDs to item names
+const itemNames = {
+    'football': 'Футбол',
+    'sex': 'Секс',
+    'Овсянка': 'Овсянка'
+};
+
 document.querySelectorAll('.btn.add').forEach(button => {
     button.addEventListener('click', function() {
         let itemId = this.id.replace('btn-', '');
-        selectedItems[itemId] = (selectedItems[itemId] || 0) + 1;
+        let itemName = itemNames[itemId];
+        selectedItems[itemName] = (selectedItems[itemName] || 0) + 1;
         updateMainButton();
     });
 });
