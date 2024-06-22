@@ -15,16 +15,16 @@ document.querySelectorAll('.btn.add').forEach(button => {
     });
 });
 
-document.getElementById('increase-hotdog').addEventListener('click', function() {
+document.getElementById('increase-ovsyanka').addEventListener('click', function() {
     updateQuantity('Овсянка', 1);
 });
 
-document.getElementById('decrease-hotdog').addEventListener('click', function() {
+document.getElementById('decrease-ovsyanka').addEventListener('click', function() {
     updateQuantity('Овсянка', -1);
 });
 
 function updateQuantity(item, change) {
-    let quantityElement = document.getElementById(`quantity-${item}`);
+    let quantityElement = document.getElementById(`quantity-ovsyanka`);
     let quantity = parseInt(quantityElement.innerText) + change;
     if (quantity < 0) quantity = 0;
     quantityElement.innerText = quantity;
