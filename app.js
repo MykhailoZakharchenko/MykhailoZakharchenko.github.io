@@ -24,11 +24,11 @@ document.querySelectorAll('.btn.add').forEach(button => {
 });
 
 document.getElementById('increase-ovsyanka').addEventListener('click', function() {
-    updateQuantity('Овсянка', 1);
+    updateQuantity('Овсянка', 100);
 });
 
 document.getElementById('decrease-ovsyanka').addEventListener('click', function() {
-    updateQuantity('Овсянка', -1);
+    updateQuantity('Овсянка', -100);
 });
 
 function updateQuantity(item, change) {
