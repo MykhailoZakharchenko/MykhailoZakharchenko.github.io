@@ -16,11 +16,11 @@ document.querySelectorAll('.btn.add').forEach(button => {
 });
 
 document.getElementById('increase-hotdog').addEventListener('click', function() {
-    updateQuantity('hotdog', 1);
+    updateQuantity('Овсянка', 1);
 });
 
 document.getElementById('decrease-hotdog').addEventListener('click', function() {
-    updateQuantity('hotdog', -1);
+    updateQuantity('Овсянка', -1);
 });
 
 function updateQuantity(item, change) {
